@@ -1,0 +1,30 @@
+vnfd-catalog:
+  vnfd:
+  - connection-point:
+    - name: eth1
+      type: VPORT
+    description: UPF2 connected to DN (External network / Internet)
+    id: vupf2
+    mgmt-interface:
+      cp: eth1
+    name: vupf2
+    short-name: vupf2
+    vdu:
+    - count: '1'
+      description: vupf2 Docker container
+      id: ubuntu
+      image: vnf-upf
+      interface:
+      - external-connection-point-ref: eth1
+        name: eth1
+        position: 0
+        type: EXTERNAL
+        virtual-interface:
+          type: VIRTIO
+      name: ubuntu
+      vm-flavor:
+        memory-mb: 512
+        storage-gb: 10
+        vcpu-count: 1
+    vendor: UPM
+    version: '1.0'
